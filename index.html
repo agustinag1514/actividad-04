@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main style="padding: 3em;">
+
+    <h1> Formulario de Registro</h1>
+
+    <form id="registroForm">
+    <label>
+        Nombre:
+        <input type="text" id="Nombre" >
+    </label>
+    <br>
+
+    <label>
+        Email:
+        <input type="email" id="email" >
+    </label>
+    <br>
+
+    <label>
+        Edad:
+        <input type="number" id="edad">
+    </label>
+    <br>
+
+    <label>
+        Pais:
+        <select id="pais" >
+            <option value =""> Seleccione un pais</option>
+            <option value ="Argentina"> Argentina</option>
+            <option value ="Uruguay"> Uruguay</option>
+            <option value ="Chile"> Chile</option>
+            <option value ="Brasil"> Brasil</option>
+        </select>
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" id="terminos">
+        Acepto los terminos
+    </label>
+    <br>
+
+    <button type="submit">Enviar</button>
+
+    </form>
+    
+    <p id="error" style="color: red"></p>
+    </main>
+
+</body>
+</html>
