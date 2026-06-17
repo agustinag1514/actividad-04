@@ -1,7 +1,6 @@
-const formulario = document.getElementById('miFormulario');
-const mensajeError = document.getElementById('error');
+const formulario = document.getElementById('registroForm');
 
-formulario.addEventListener('submit', function(evento){
+formulario.addEventListener('submit', function (evento) {
 
     evento.preventDefault();
 
@@ -11,36 +10,41 @@ formulario.addEventListener('submit', function(evento){
     const pais = document.getElementById('pais').value;
     const terminos = document.getElementById('terminos').checked;
 
-    let errores = [];
-
-    if(nombre.length < 5) {
-        errores.push("El nombre debe tener al menos 5 caracteres.");
+    if (nombre.length < 5) {
+        alert("El nombre debe tener al menos 5 caracteres.");
+        return;
+    } else {
+        localStorage.setItem('nombre', nombre)
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!emailRegex.test(email)){
-        errores.push("El email no es valido.");
+    if (!emailRegex.test(email)) {
+        alert("El email no es valido.");
+        return;
+    } else {
+        localStorage.setItem('email', email)
     }
 
-    if(isNaN(edad) || edad < 18 || edad >60){
-        errores.push("La edad debe ser un numero entre 18 y 60.");
+    if (isNaN(edad) || edad < 18 || edad > 60) {
+        alert("La edad debe ser un numero entre 18 y 60.");
+        return;
+    } else {
+        localStorage.setItem('edad', edad)
     }
 
-    if(pais === ""){
-        errores.push("Debe seleccionar un pais.");
+    if (pais === "") {
+        alert("Debe seleccionar un pais.");
+        return;
+    } else {
+        localStorage.setItem('pais', pais)
     }
 
-    if(!terminos){
-        errores.push("Debe aceptar los terminos y condiciones.");
+    if (!terminos) {
+        alert("Debe aceptar los terminos y condiciones.");
+        return;
+    } else {
+        localStorage.setItem('terminos', terminos)
     }
 
-    if(errores.length > 0){
-        mensajeError.innerHTML = errores.join("<br>");
-    } else{
-        mensajeError.innerHTML = "";
-
-        alert("!Todo listo! Enviando datos...");
-
-        window.location.href = `resultado.html?nombre=${encodeURIComponent(nombre)}&email=${encodeURIComponent(email)}&edad=${edad}&pais=${encodeURIComponent(pais)}`;
-    }
+    window.location.href="./resultado.html"
 });
